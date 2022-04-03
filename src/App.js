@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Layout from "./components/layout/Layout";
+import { Routes, Route } from "react-router-dom";
+import { MathJaxContext } from "better-react-mathjax";
+
+import Home from "./pages/home/Home";
+import SupportAndResistanceLines from "./pages/supportAndResistanceLines/SupportAndResistanceLines";
+import Donate from "./pages/donate/Donate";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <MathJaxContext>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/computing-support-and-resistance-lines-in-javascript"
+            element={<SupportAndResistanceLines />}
+          ></Route>
+          <Route path="/donate" element={<Donate />}></Route>
+        </Routes>
+      </MathJaxContext>
+    </Layout>
   );
 }
 
